@@ -1,0 +1,323 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+    background-color: #1c0036;
+  }
+  
+#container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #fff3f38e;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out; /* adds a nice animation to all properties */
+  }
+  
+  #container:hover {
+    transform: scale(1.05); /* adds a hover animation to scale the element by 5% */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* adds a hover animation to increase the box shadow */
+  }
+  
+  h1 {
+    text-align: center;
+    margin-top: 0;
+    position: relative;
+    /* Add a transition for smooth animation */
+    transition: all 0.3s ease-in-out;
+  }
+  
+  h1:hover {
+    /* Apply a color change and scale effect on hover */
+    color: #ff8c00;
+    transform: scale(1.2);
+  }
+  
+  h1::before {
+    /* Add a cool animation to the element */
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #ff8c00;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  h1:hover::before {
+    /* Animate the element to fill the width of the container on hover */
+    transform: scaleX(1);
+  }
+  
+  #choices {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+    position: relative; /* Add position:relative to enable absolute positioning for ::before pseudo-element */
+  }
+  
+  #choices:hover::before {
+    /* Add a hover animation using the ::before pseudo-element */
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    z-index: -1;
+    border: 2px solid #0077ff;
+    border-radius: 10px;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+  }
+  
+  @keyframes cool-animation {
+    /* Define a cool animation using keyframes */
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+  }
+  
+  #choices button {
+    /* Apply the cool animation to the buttons inside the #choices div */
+    animation-name: cool-animation;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+  }
+
+  label {
+    margin-bottom: 10px;
+    position: relative;
+    display: inline-block;
+  }
+  
+  label::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 100%;
+    height: 2px;
+    background-color: #000;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  label:hover::after {
+    transform: scaleX(1);
+  }
+  
+  @keyframes coolAnimation {
+    0% {
+      transform: rotate(0);
+    }
+    50% {
+      transform: rotate(180deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  label span {
+    display: inline-block;
+    animation-name: coolAnimation;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+  
+input[type="radio"] {
+	margin-right: 10px;
+}
+
+#submit {
+    display: block;
+    margin: 0 auto;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  #submit:before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    opacity: 0;
+  }
+  
+  #submit:hover:before {
+    width: 300px;
+    height: 300px;
+    opacity: 1;
+    transition: all 0.5s ease-in-out;
+  }
+  
+  #submit:hover {
+    animation-name: pulse;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  #submit {
+    display: block;
+    margin: 0 auto;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  #submit::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    z-index: -1;
+    transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
+  }
+  
+  #submit:hover::before {
+    width: 200%;
+    height: 200%;
+  }
+  
+  #submit:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
+  }
+    
+  #score {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 18px;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  #score:hover {
+    transform: scale(1.2);
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(0.95);
+    }
+    
+    50% {
+      transform: scale(1.05);
+    }
+    
+    100% {
+      transform: scale(0.95);
+    }
+  }
+  
+  #score:active {
+    animation-name: pulse;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-out;
+  }
+  
+  #question {
+    font-size: 24px;
+    color: #333;
+    transition: all 0.3s ease;
+  }
+  
+  #question:hover {
+    transform: scale(1.1);
+    color: #ff6347;
+  }
+  
+  @keyframes slide-in {
+    from {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  #question::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #ff6347;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  #question:hover::before {
+    transform: scaleX(1);
+  }
+  
+  #question::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #ff6347;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  #question:hover::after {
+    transform: scaleX(1);
+  }
+  
+  #question {
+    animation: slide-in 0.5s ease;
+  }
+  
+  
